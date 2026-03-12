@@ -618,29 +618,13 @@ ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--space-4);
 }
 
 .footer-copy {
   font-size: 0.875rem;
   color: var(--color-text-secondary);
-}
-
-.footer-links {
-  display: flex;
-  gap: var(--space-6);
-}
-
-.footer-links a {
-  font-size: 0.875rem;
-  color: var(--color-text-secondary);
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: var(--color-text-primary);
 }
 
 
