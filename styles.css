@@ -445,16 +445,6 @@ ul {
   margin-bottom: var(--space-10);
 }
 
-.br-desktop {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .br-desktop {
-    display: inline;
-  }
-}
-
 
 /* Scroll hint chevron */
 .scroll-hint {
