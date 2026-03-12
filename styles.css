@@ -456,6 +456,35 @@ ul {
 }
 
 
+/* Scroll hint chevron */
+.scroll-hint {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-text-secondary);
+  opacity: 0.5;
+  animation: scroll-bounce 2s ease-in-out infinite;
+  transition: opacity 0.4s ease;
+}
+
+.scroll-hint.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint {
+    animation: none;
+  }
+}
+
+
 /* ============================================================
    BUTTONS
    ============================================================ */

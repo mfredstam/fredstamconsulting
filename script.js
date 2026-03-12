@@ -108,3 +108,16 @@ const cardObserver = new IntersectionObserver(
 );
 
 cards.forEach(card => cardObserver.observe(card));
+
+
+/* ──────────────────────────────────────────────
+   5. Scroll hint — hide after first scroll
+────────────────────────────────────────────── */
+const scrollHint = document.querySelector('.scroll-hint');
+if (scrollHint) {
+  const hideHint = () => {
+    scrollHint.classList.add('is-hidden');
+    window.removeEventListener('scroll', hideHint, { passive: true });
+  };
+  window.addEventListener('scroll', hideHint, { passive: true });
+}
