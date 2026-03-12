@@ -63,17 +63,21 @@ function getNavbarHeight() {
   );
 }
 
+// Track which section is "current" so upward scroll works
+let activeSectionId = null;
+
 const spyObserver = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.id;
-      navLinks.forEach(link => {
-        link.classList.toggle(
-          'is-active',
-          link.getAttribute('href') === `#${id}`
-        );
-      });
+      if (entry.isIntersecting) {
+        activeSectionId = entry.target.id;
+      }
+    });
+    const visibleEntry = entries.find(e => e.isIntersecting);
+    const id = visibleEntry ? visibleEntry.target.id : activeSectionId;
+    if (!id) return;
+    navLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
     });
   },
   {
