@@ -438,6 +438,28 @@ ul {
   margin-bottom: var(--space-10);
 }
 
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--color-accent-teal);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  color: var(--color-accent-teal);
+  line-height: 1;
+}
+
+.availability-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-accent-teal);
+  flex-shrink: 0;
+}
+
 /* Scroll hint chevron */
 .scroll-hint {
   position: absolute;
@@ -603,6 +625,61 @@ ul {
   font-size: 0.9375rem;
   color: var(--color-text-secondary);
   line-height: 1.7;
+}
+
+.skills-strip {
+  margin-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skills-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  margin-right: 0.25rem;
+  white-space: nowrap;
+}
+
+.skills-tag {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: var(--color-surface);
+  font-size: 0.8125rem;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+
+.section--about {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.about-inner {
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.about-bio {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-top: var(--space-4);
 }
 
 /* ============================================================
