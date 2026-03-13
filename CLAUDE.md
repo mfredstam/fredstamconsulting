@@ -22,7 +22,19 @@ prompt.md           — original brief that generated the site (reference only)
 
 Open `index.html` directly in a browser. No server, build tools, or package manager needed.
 
-There are no tests, linters, or build scripts. Validate visually in browser, and check browser devtools console for JS errors.
+There are no tests. Validate visually in browser, and check browser devtools console for JS errors.
+
+## Checks
+
+Run locally with `npx` (no install needed):
+
+```
+npx eslint script.js
+npx stylelint styles.css
+npx prettier --check index.html styles.css script.js
+```
+
+These same checks run automatically on every PR via `.github/workflows/lint.yml`.
 
 ## Architecture
 
