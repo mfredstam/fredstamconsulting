@@ -220,16 +220,6 @@ ul {
 
 .site-logo span[aria-hidden] {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  background-color: var(--color-accent-blue);
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: var(--radius);
-  letter-spacing: 0.04em;
   flex-shrink: 0;
 }
 
