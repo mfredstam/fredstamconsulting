@@ -1,0 +1,19 @@
+name: Lint
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: ESLint
+        run: npx --yes eslint script.js
+
+      - name: Stylelint
+        run: npx --yes stylelint styles.css
+
+      - name: Prettier
+        run: npx --yes prettier --check index.html styles.css script.js
