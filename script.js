@@ -54,39 +54,33 @@ if (hamburgerBtn && siteNav) {
 const sections  = document.querySelectorAll('section[id]');
 const navLinks  = document.querySelectorAll('.nav-link');
 
-// Read navbar height from CSS custom property
 function getNavbarHeight() {
-  return parseInt(
-    getComputedStyle(document.documentElement)
-      .getPropertyValue('--navbar-height') || '64',
-    10
-  );
+  return document.querySelector('.site-header')?.offsetHeight ?? 64;
 }
 
-// Track which section is "current" so upward scroll works
-let activeSectionId = null;
+function updateScrollSpy() {
+  const navbarHeight = getNavbarHeight();
+  let activeId = null;
 
-const spyObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        activeSectionId = entry.target.id;
+  // At-bottom fallback: force last section active when page is fully scrolled
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+    activeId = sections[sections.length - 1]?.id ?? null;
+  } else {
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top <= navbarHeight + 1) {
+        activeId = section.id;
       }
     });
-    const visibleEntry = entries.find(e => e.isIntersecting);
-    const id = visibleEntry ? visibleEntry.target.id : activeSectionId;
-    if (!id) return;
-    navLinks.forEach(link => {
-      link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
-    });
-  },
-  {
-    rootMargin: `-${getNavbarHeight()}px 0px -50% 0px`,
-    threshold: 0,
   }
-);
 
-sections.forEach(section => spyObserver.observe(section));
+  navLinks.forEach(link => {
+    link.classList.toggle('is-active', link.getAttribute('href') === `#${activeId}`);
+  });
+}
+
+updateScrollSpy();
+window.addEventListener('scroll', updateScrollSpy, { passive: true });
+window.addEventListener('resize', updateScrollSpy, { passive: true });
 
 
 /* ──────────────────────────────────────────────
