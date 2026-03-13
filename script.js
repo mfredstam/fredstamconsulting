@@ -8,12 +8,11 @@ if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-
 /* ──────────────────────────────────────────────
    2. Hamburger toggle
 ────────────────────────────────────────────── */
 const hamburgerBtn = document.getElementById('hamburger-btn');
-const siteNav      = document.getElementById('site-nav');
+const siteNav = document.getElementById('site-nav');
 
 function openMenu() {
   siteNav.classList.add('is-open');
@@ -34,12 +33,12 @@ if (hamburgerBtn && siteNav) {
   });
 
   // Close when a nav link is clicked (mobile)
-  siteNav.querySelectorAll('.nav-link').forEach(link => {
+  siteNav.querySelectorAll('.nav-link').forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
 
   // Close on Escape key
-  document.addEventListener('keydown', e => {
+  document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && hamburgerBtn.getAttribute('aria-expanded') === 'true') {
       closeMenu();
       hamburgerBtn.focus();
@@ -47,41 +46,44 @@ if (hamburgerBtn && siteNav) {
   });
 }
 
-
 /* ──────────────────────────────────────────────
    3. Scroll-spy (active nav link highlight)
 ────────────────────────────────────────────── */
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
 
+// Read navbar height from CSS custom property
 function getNavbarHeight() {
-  return document.querySelector('.site-header')?.offsetHeight ?? 64;
+  return parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--navbar-height') || '64',
+    10,
+  );
 }
 
-function updateScrollSpy() {
-  const navbarHeight = getNavbarHeight();
-  let activeId = null;
+// Track which section is "current" so upward scroll works
+let activeSectionId = null;
 
-  // At-bottom fallback: force last section active when page is fully scrolled
-  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
-    activeId = sections[sections.length - 1]?.id ?? null;
-  } else {
-    sections.forEach(section => {
-      if (section.getBoundingClientRect().top <= navbarHeight + 1) {
-        activeId = section.id;
+const spyObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        activeSectionId = entry.target.id;
       }
     });
-  }
+    const visibleEntry = entries.find((e) => e.isIntersecting);
+    const id = visibleEntry ? visibleEntry.target.id : activeSectionId;
+    if (!id) return;
+    navLinks.forEach((link) => {
+      link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+    });
+  },
+  {
+    rootMargin: `-${getNavbarHeight()}px 0px -50% 0px`,
+    threshold: 0,
+  },
+);
 
-  navLinks.forEach(link => {
-    link.classList.toggle('is-active', link.getAttribute('href') === `#${activeId}`);
-  });
-}
-
-updateScrollSpy();
-window.addEventListener('scroll', updateScrollSpy, { passive: true });
-window.addEventListener('resize', updateScrollSpy, { passive: true });
-
+sections.forEach((section) => spyObserver.observe(section));
 
 /* ──────────────────────────────────────────────
    4. Service card scroll-reveal (staggered)
@@ -89,10 +91,10 @@ window.addEventListener('resize', updateScrollSpy, { passive: true });
 const cards = document.querySelectorAll('.service-card');
 
 const cardObserver = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
+  (entries) => {
+    entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      const card  = entry.target;
+      const card = entry.target;
       const index = Array.from(cards).indexOf(card);
       // Stagger each card by 100ms
       setTimeout(() => {
@@ -102,11 +104,10 @@ const cardObserver = new IntersectionObserver(
       cardObserver.unobserve(card);
     });
   },
-  { threshold: 0.05 }
+  { threshold: 0.05 },
 );
 
-cards.forEach(card => cardObserver.observe(card));
-
+cards.forEach((card) => cardObserver.observe(card));
 
 /* ──────────────────────────────────────────────
    5. Scroll hint — hide after first scroll

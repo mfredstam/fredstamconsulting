@@ -34,34 +34,33 @@
   font-display: swap;
 }
 
-
 /* ============================================================
    CUSTOM PROPERTIES
    ============================================================ */
 
 :root {
   /* Colors */
-  --color-bg:             #1A1D23;
-  --color-surface:        #252930;
-  --color-accent-blue:    #4A6FA5;
-  --color-accent-teal:    #3D8B85;
-  --color-text-primary:   #D0D5DD;
-  --color-text-secondary: #8B939E;
-  --color-cta:            #5A9BF5;
-  --color-border:         #333840;
+  --color-bg: #1a1d23;
+  --color-surface: #252930;
+  --color-accent-blue: #4a6fa5;
+  --color-accent-teal: #3d8b85;
+  --color-text-primary: #d0d5dd;
+  --color-text-secondary: #8b939e;
+  --color-cta: #5a9bf5;
+  --color-border: #333840;
 
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Helvetica, Arial, sans-serif;
+  --font-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   /* Spacing scale */
-  --space-1:  0.25rem;
-  --space-2:  0.5rem;
-  --space-3:  0.75rem;
-  --space-4:  1rem;
-  --space-5:  1.25rem;
-  --space-6:  1.5rem;
-  --space-8:  2rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
@@ -70,11 +69,10 @@
 
   /* Layout */
   --container-max: 1100px;
-  --navbar-height: 4rem;   /* 64px */
-  --radius:        0.5rem;
-  --radius-lg:     0.75rem;
+  --navbar-height: 4rem; /* 64px */
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
 }
-
 
 /* ============================================================
    RESET & BASE
@@ -155,7 +153,6 @@ ul {
   top: 0;
 }
 
-
 /* ============================================================
    LAYOUT
    ============================================================ */
@@ -182,7 +179,6 @@ ul {
     padding-block: var(--space-24);
   }
 }
-
 
 /* ============================================================
    NAVBAR
@@ -307,19 +303,21 @@ ul {
   height: 2px;
   background-color: var(--color-text-primary);
   border-radius: 1px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
   transform-origin: center;
 }
 
 /* Hamburger → X morphing */
-.hamburger[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+.hamburger[aria-expanded='true'] .hamburger-bar:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
-.hamburger[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+.hamburger[aria-expanded='true'] .hamburger-bar:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
-.hamburger[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+.hamburger[aria-expanded='true'] .hamburger-bar:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
@@ -340,7 +338,10 @@ ul {
     visibility: hidden;
     opacity: 0;
     transform: translateY(-8px);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0s linear 0.25s;
     z-index: 99;
   }
 
@@ -348,7 +349,10 @@ ul {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0s;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0s linear 0s;
   }
 
   .nav-list {
@@ -365,7 +369,6 @@ ul {
     min-height: 48px;
   }
 }
-
 
 /* ============================================================
    HERO SECTION
@@ -435,7 +438,6 @@ ul {
   margin-bottom: var(--space-10);
 }
 
-
 /* Scroll hint chevron */
 .scroll-hint {
   position: absolute;
@@ -454,8 +456,13 @@ ul {
 }
 
 @keyframes scroll-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(6px); }
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -463,7 +470,6 @@ ul {
     animation: none;
   }
 }
-
 
 /* ============================================================
    BUTTONS
@@ -484,7 +490,10 @@ ul {
   cursor: pointer;
   text-decoration: none;
   min-height: 44px;
-  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .btn--primary {
@@ -515,7 +524,6 @@ ul {
   color: var(--color-text-primary);
   background-color: color-mix(in srgb, var(--color-accent-teal) 8%, transparent);
 }
-
 
 /* ============================================================
    SERVICES SECTION
@@ -556,8 +564,11 @@ ul {
   padding: var(--space-8);
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.5s ease, transform 0.5s ease,
-              border-color 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .service-card.is-visible {
@@ -593,7 +604,6 @@ ul {
   color: var(--color-text-secondary);
   line-height: 1.7;
 }
-
 
 /* ============================================================
    CONTACT SECTION
@@ -631,7 +641,6 @@ ul {
   flex-shrink: 0;
 }
 
-
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -654,7 +663,6 @@ ul {
   font-size: 0.875rem;
   color: var(--color-text-secondary);
 }
-
 
 /* ============================================================
    REDUCED MOTION
