@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "@axe-core/playwright": "latest",
+    "@playwright/test": "latest",
+    "html-validate": "latest",
+    "serve": "^14"
+  },
+  "scripts": {
+    "test": "npm run test:html && npm run test:e2e",
+    "test:html": "html-validate index.html",
+    "test:e2e": "playwright test"
+  }
+}
