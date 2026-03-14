@@ -1,7 +1,7 @@
 'use strict';
 
 const { test, expect } = require('@playwright/test');
-const { checkA11y, injectAxe } = require('@axe-core/playwright');
+const { AxeBuilder } = require('@axe-core/playwright');
 
 test.describe('Page structure', () => {
   test.beforeEach(async ({ page }) => {
@@ -76,5 +76,25 @@ test.describe('Hamburger menu', () => {
     await page.locator('#hamburger-btn').click();
     await page.locator('#site-nav .nav-link').first().click();
     await expect(page.locator('#site-nav')).not.toHaveClass(/is-open/);
+  });
+});
+
+test.describe('Accessibility', () => {
+  test('desktop: no WCAG 2.1 AA violations', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto('/');
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    expect(results.violations).toEqual([]);
+  });
+
+  test('mobile: no WCAG 2.1 AA violations', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    expect(results.violations).toEqual([]);
   });
 });
