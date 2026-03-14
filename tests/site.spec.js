@@ -46,3 +46,35 @@ test.describe('Page structure', () => {
     }
   });
 });
+
+test.describe('Hamburger menu', () => {
+  test.use({ viewport: { width: 375, height: 812 } });
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
+  test('clicking hamburger opens the nav', async ({ page }) => {
+    await page.locator('#hamburger-btn').click();
+    await expect(page.locator('#site-nav')).toHaveClass(/is-open/);
+    await expect(page.locator('#hamburger-btn')).toHaveAttribute(
+      'aria-expanded',
+      'true',
+    );
+  });
+
+  test('pressing Escape closes the nav and focuses hamburger', async ({
+    page,
+  }) => {
+    await page.locator('#hamburger-btn').click();
+    await page.keyboard.press('Escape');
+    await expect(page.locator('#site-nav')).not.toHaveClass(/is-open/);
+    await expect(page.locator('#hamburger-btn')).toBeFocused();
+  });
+
+  test('clicking a nav link closes the nav', async ({ page }) => {
+    await page.locator('#hamburger-btn').click();
+    await page.locator('#site-nav .nav-link').first().click();
+    await expect(page.locator('#site-nav')).not.toHaveClass(/is-open/);
+  });
+});
