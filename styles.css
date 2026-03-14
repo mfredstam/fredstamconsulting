@@ -552,7 +552,11 @@ ul {
    ============================================================ */
 
 .section--services {
-  background-color: var(--color-surface);
+  background: linear-gradient(
+    180deg,
+    var(--color-surface) 0%,
+    color-mix(in srgb, var(--color-surface) 94%, var(--color-accent-teal)) 100%
+  );
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
@@ -684,7 +688,11 @@ ul {
    ============================================================ */
 
 .section--about {
-  background: var(--color-surface);
+  background: linear-gradient(
+    180deg,
+    var(--color-surface) 0%,
+    color-mix(in srgb, var(--color-surface) 94%, var(--color-accent-blue)) 100%
+  );
   border-top: 1px solid var(--color-border);
 }
 
@@ -703,6 +711,14 @@ ul {
 /* ============================================================
    CONTACT SECTION
    ============================================================ */
+
+.section--contact {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    color-mix(in srgb, var(--color-bg) 94%, var(--color-accent-teal)) 100%
+  );
+}
 
 .contact-inner {
   max-width: 640px;
