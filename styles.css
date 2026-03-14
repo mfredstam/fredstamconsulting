@@ -552,7 +552,11 @@ ul {
    ============================================================ */
 
 .section--services {
-  background-color: var(--color-surface);
+  background: linear-gradient(
+    180deg,
+    var(--color-surface) 0%,
+    color-mix(in srgb, var(--color-surface) 94%, var(--color-accent-teal)) 100%
+  );
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
@@ -642,7 +646,7 @@ ul {
 }
 
 .skills-label {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-text-secondary);
@@ -652,11 +656,11 @@ ul {
 
 .skills-tag {
   display: inline-block;
-  padding: 0.25rem 0.6rem;
+  padding: 0.375rem 0.8rem;
   border: 1px solid var(--color-border);
   border-radius: 4px;
   background: var(--color-surface);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-primary);
   line-height: 1.4;
 }
@@ -666,7 +670,11 @@ ul {
    ============================================================ */
 
 .section--about {
-  background: var(--color-surface);
+  background: linear-gradient(
+    180deg,
+    var(--color-surface) 0%,
+    color-mix(in srgb, var(--color-surface) 94%, var(--color-accent-blue)) 100%
+  );
   border-top: 1px solid var(--color-border);
 }
 
@@ -685,6 +693,14 @@ ul {
 /* ============================================================
    CONTACT SECTION
    ============================================================ */
+
+.section--contact {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    color-mix(in srgb, var(--color-bg) 94%, var(--color-accent-teal)) 100%
+  );
+}
 
 .contact-inner {
   max-width: 640px;
