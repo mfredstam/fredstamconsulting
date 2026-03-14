@@ -30,10 +30,11 @@ The pseudo sits behind the card at `z-index: -1`, slightly larger (1px bleed on 
 ```
 gradient: linear-gradient(135deg,
   color-mix(in srgb, var(--color-accent-teal) 35%, var(--color-border)),
-  var(--color-border) 50%,
-  var(--color-border)
+  var(--color-border) 50%
 )
 ```
+
+Two stops: teal-tinted border colour at 0%, transitioning to plain border colour at 50% (then holding flat to 100%). The third `var(--color-border)` stop in the earlier draft was redundant and has been removed.
 
 Gradient angle 135° places the teal accent at the top-left corner of each card — the natural entry point as the eye scans left-to-right.
 
@@ -41,7 +42,7 @@ The existing hover state (solid teal `border-color` + teal `box-shadow`) is **no
 
 Because `.service-card` uses `opacity: 0` / `transform: translateY(24px)` for its reveal animation, the `::before` pseudo inherits those states automatically — no extra animation work needed.
 
-**CSS changes:** `.service-card` in `styles.css` — add `position: relative` (if not already set), `isolation: isolate`, and the `::before` rule.
+**CSS changes:** `.service-card` in `styles.css` — add `position: relative` and `isolation: isolate` (neither is currently present), and the `::before` rule. Both `position: relative` and `isolation: isolate` are required: `relative` establishes the positioning context for the pseudo, and `isolate` creates a new stacking context so the `z-index: -1` pseudo stays behind the card content without leaking through to parent stacking contexts.
 
 ### 2. Section background fades
 
@@ -54,6 +55,8 @@ Replace flat `background-color` with `linear-gradient(180deg, ...)` on three sec
 | Contact | `.section--contact` | `var(--color-bg)` | `color-mix(in srgb, var(--color-bg) 94%, var(--color-accent-teal))` | teal |
 
 The 6% tint ratio is deliberately subtle — just enough to add warmth and visual separation between sections without drawing attention to itself.
+
+**Note on `.section--contact`:** There is currently no `.section--contact` block in `styles.css`. This is a **new rule** to be added, not a modification of an existing declaration. The HTML already applies `class="section section--contact"` to the contact `<section>` element, so the selector is valid.
 
 ---
 
