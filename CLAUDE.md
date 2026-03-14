@@ -12,17 +12,40 @@ Static single-page website for Marcus Fredstam, freelance embedded software cons
 ```
 index.html          — all markup, inline SVG icons, semantic structure
 styles.css          — all styles, design tokens, responsive rules
-script.js           — all JS behaviour (4 independent modules)
+script.js           — all JS behaviour (independent modules)
 fonts/              — self-hosted Inter 4.1 WOFF2 (regular, medium, semibold, bold)
+package.json        — dev-only test tooling (not deployed)
+package-lock.json   — lockfile for npm ci in CI
+playwright.config.js — Playwright config (Chromium, webServer, baseURL)
+.htmlvalidate.json  — html-validate rules config
+tests/site.spec.js  — Playwright E2E + axe WCAG 2.1 AA tests
 prompt.md           — original brief that generated the site (reference only)
-.github/workflows/  — GitHub Actions: Claude Code assistant + automated PR review
+.github/workflows/  — GitHub Actions: lint, tests, Claude Code assistant
 ```
 
 ## Development
 
-Open `index.html` directly in a browser. No server, build tools, or package manager needed.
+Open `index.html` directly in a browser. No server needed for the site itself.
 
-There are no tests. Validate visually in browser, and check browser devtools console for JS errors.
+## Tests
+
+Run the full test suite (html-validate + Playwright E2E + axe a11y):
+
+```bash
+npm install          # first time only — installs devDependencies
+npm test             # html-validate + all 11 Playwright tests
+npm run test:html    # html-validate only (fast, no browser)
+npm run test:e2e     # Playwright only (auto-starts serve on localhost:3000)
+```
+
+Tests run automatically on every PR via `.github/workflows/test.yml`. On failure, a Playwright HTML report is uploaded as a CI artifact (7-day retention).
+
+**html-validate rule suppressions** (documented in `.htmlvalidate.json`):
+- `no-style-tag` — `<noscript><style>` fallback in `<head>` is intentional (no-JS card reveal fix)
+- `doctype-style` — `<!doctype html>` lowercase is correct HTML5 and what Prettier enforces
+- `void-style` — self-closing void elements (`<meta ... />`) is what Prettier enforces
+- `no-redundant-role` — explicit ARIA roles on semantic elements (`role="banner"` etc.) are intentional for accessibility clarity
+- `no-implicit-button-type` — hamburger `<button>` has no `type` attribute; it is not inside a `<form>` so the default is harmless
 
 ## Checks
 
@@ -38,11 +61,12 @@ These same checks run automatically on every PR via `.github/workflows/lint.yml`
 
 ## Architecture
 
-**Single-page layout:** Hero (`#intro`) → Services (`#services`) → Contact (`#contact`), with sticky nav and scroll-spy active states.
+**Single-page layout:** Hero (`#intro`) → Services (`#services`) → About (`#about`) → Contact (`#contact`), with sticky nav and scroll-spy active states.
 
 **Page sections:**
 - `#intro` — full-viewport hero with name, tagline, sub-copy, and LinkedIn CTA button
 - `#services` — three service cards (Software Engineering, Safety-Critical, Cyber Security) on a grid
+- `#about` — two paragraphs of bio text about Marcus's background and working style
 - `#contact` — contact description, LinkedIn button, location line
 
 **CSS custom properties** (all defined in `:root` in `styles.css`) drive the entire design system:
