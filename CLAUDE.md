@@ -38,7 +38,7 @@ These same checks run automatically on every PR via `.github/workflows/lint.yml`
 
 ## Architecture
 
-**Single-page layout:** Hero (`#intro`) → Services (`#services`) → Contact (`#contact`), with sticky nav and scroll-spy active states.
+**Single-page layout:** Hero (`#intro`) → Services (`#services`) → About (`#about`) → Contact (`#contact`), with sticky nav and scroll-spy active states.
 
 **Page sections:**
 - `#intro` — full-viewport hero with name, tagline, sub-copy, and LinkedIn CTA button

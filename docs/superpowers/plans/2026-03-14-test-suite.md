@@ -298,34 +298,37 @@ git commit -m "test: add hamburger menu E2E tests"
 **Files:**
 - Modify: `tests/site.spec.js`
 
-axe-core audits the full page at desktop and mobile viewports. Tests use `injectAxe` to load the axe script into the page, then `checkA11y` to run the audit. The `runOnly` option restricts to WCAG 2.1 AA rules (`wcag2a` + `wcag2aa`), excluding `best-practice` extras.
+axe-core audits the full page at desktop and mobile viewports. `@axe-core/playwright` exports `AxeBuilder` (not `injectAxe`/`checkA11y` — those belong to a different package). Use `new AxeBuilder({ page }).withTags([...]).analyze()` and assert `results.violations` is empty.
+
+Note: the import at the top of the file should be `const { AxeBuilder } = require('@axe-core/playwright')` — replace the `{ checkA11y, injectAxe }` import from Task 5.
 
 - [ ] **Step 1: Append accessibility tests to tests/site.spec.js**
 
-Add after the hamburger describe block:
+First update the import at the top of the file (line 4):
+```js
+const { AxeBuilder } = require('@axe-core/playwright');
+```
+
+Then add after the hamburger describe block:
 
 ```js
 test.describe('Accessibility', () => {
   test('desktop: no WCAG 2.1 AA violations', async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
     await page.goto('/');
-    await injectAxe(page);
-    await checkA11y(page, undefined, {
-      axeOptions: {
-        runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa'] },
-      },
-    });
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    expect(results.violations).toEqual([]);
   });
 
   test('mobile: no WCAG 2.1 AA violations', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
-    await injectAxe(page);
-    await checkA11y(page, undefined, {
-      axeOptions: {
-        runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa'] },
-      },
-    });
+    const results = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .analyze();
+    expect(results.violations).toEqual([]);
   });
 });
 ```
