@@ -43,6 +43,7 @@ These same checks run automatically on every PR via `.github/workflows/lint.yml`
 **Page sections:**
 - `#intro` — full-viewport hero with name, tagline, sub-copy, and LinkedIn CTA button
 - `#services` — three service cards (Software Engineering, Safety-Critical, Cyber Security) on a grid
+- `#about` — two paragraphs of bio text about Marcus's background and working style
 - `#contact` — contact description, LinkedIn button, location line
 
 **CSS custom properties** (all defined in `:root` in `styles.css`) drive the entire design system:

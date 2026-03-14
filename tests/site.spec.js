@@ -69,6 +69,7 @@ test.describe('Hamburger menu', () => {
     await page.locator('#hamburger-btn').click();
     await page.keyboard.press('Escape');
     await expect(page.locator('#site-nav')).not.toHaveClass(/is-open/);
+    await expect(page.locator('#hamburger-btn')).toHaveAttribute('aria-expanded', 'false');
     await expect(page.locator('#hamburger-btn')).toBeFocused();
   });
 
@@ -76,6 +77,7 @@ test.describe('Hamburger menu', () => {
     await page.locator('#hamburger-btn').click();
     await page.locator('#site-nav .nav-link').first().click();
     await expect(page.locator('#site-nav')).not.toHaveClass(/is-open/);
+    await expect(page.locator('#hamburger-btn')).toHaveAttribute('aria-expanded', 'false');
   });
 });
 
