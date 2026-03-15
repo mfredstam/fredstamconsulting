@@ -34,7 +34,7 @@ npx prettier --check index.html styles.css script.js
 
 ## Deployment
 
-Hosted on GitHub Pages from the `main` branch. Push to `main` to deploy — no build step needed.
+Hosted on GitHub Pages from the `deploy` branch. Push to `deploy` to deploy — no build step needed.
 
 ## CI
 
