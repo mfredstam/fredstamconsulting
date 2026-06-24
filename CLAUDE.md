@@ -122,9 +122,8 @@ Hosted on GitHub Pages from the `main` branch. Push to `main` to deploy — no b
 
 ## GitHub Actions
 
-Two workflows in `.github/workflows/`:
+One workflow in `.github/workflows/`:
 
 - **`claude.yml`** — Triggers on `@claude` mentions in issues/PRs/comments. Uses `anthropics/claude-code-action@v1` with `CLAUDE_CODE_OAUTH_TOKEN` secret.
-- **`claude-code-review.yml`** — Auto-reviews every PR (opened, synchronize, ready_for_review, reopened) using the `code-review` Claude Code plugin.
 
-Both workflows require the `CLAUDE_CODE_OAUTH_TOKEN` repository secret to be configured.
+This workflow requires the `CLAUDE_CODE_OAUTH_TOKEN` repository secret to be configured.
