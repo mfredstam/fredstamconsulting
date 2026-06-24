@@ -46,6 +46,7 @@ Tests run automatically on every PR via `.github/workflows/test.yml`. On failure
 - `void-style` — self-closing void elements (`<meta ... />`) is what Prettier enforces
 - `no-redundant-role` — explicit ARIA roles on semantic elements (`role="banner"` etc.) are intentional for accessibility clarity
 - `no-implicit-button-type` — hamburger `<button>` has no `type` attribute; it is not inside a `<form>` so the default is harmless
+- `long-title` — the `<title>` contains `&amp;` which the validator counts as 5 raw characters; the decoded text is 69 chars (within the 70-char limit)
 
 ## Checks
 
