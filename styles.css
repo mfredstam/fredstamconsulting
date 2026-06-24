@@ -68,8 +68,7 @@
   /* Typography */
   --font-sans:
     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-mono:
-    'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
 
   /* Spacing scale */
   --space-1: 0.25rem;
