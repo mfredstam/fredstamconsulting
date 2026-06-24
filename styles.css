@@ -435,6 +435,14 @@ ul {
 .hero-sub {
   font-size: 1rem;
   color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
   margin-bottom: var(--space-10);
 }
 
@@ -580,6 +588,12 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
+}
+
+@media (max-width: 767px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .services-grid > li {
