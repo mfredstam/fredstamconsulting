@@ -136,8 +136,8 @@ test.describe('Courses section', () => {
     await expect(page.locator('a.nav-link[href="#courses"]')).toHaveCount(1);
   });
 
-  test('courses section has heading "Popular Courses"', async ({ page }) => {
-    await expect(page.locator('#courses h2')).toHaveText('Popular Courses');
+  test('courses section has heading "Level Up Your Team"', async ({ page }) => {
+    await expect(page.locator('#courses h2')).toHaveText('Level Up Your Team');
   });
 
   test('three course cards are present, each with a Popular badge', async ({ page }) => {
