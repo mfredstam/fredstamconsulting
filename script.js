@@ -110,7 +110,29 @@ const cardObserver = new IntersectionObserver(
 cards.forEach((card) => cardObserver.observe(card));
 
 /* ──────────────────────────────────────────────
-   5. Scroll hint — hide after first scroll
+   5. Course card scroll-reveal (staggered)
+────────────────────────────────────────────── */
+const courseCards = document.querySelectorAll('.course-card');
+
+const courseCardObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const card = entry.target;
+      const index = Array.from(courseCards).indexOf(card);
+      setTimeout(() => {
+        card.classList.add('is-visible');
+      }, index * 100);
+      courseCardObserver.unobserve(card);
+    });
+  },
+  { threshold: 0.05 },
+);
+
+courseCards.forEach((card) => courseCardObserver.observe(card));
+
+/* ──────────────────────────────────────────────
+   6. Scroll hint — hide after first scroll
 ────────────────────────────────────────────── */
 const scrollHint = document.querySelector('.scroll-hint');
 if (scrollHint) {
