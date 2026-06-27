@@ -846,11 +846,9 @@ ul {
 .courses-callout {
   margin-top: var(--space-12);
   max-width: 600px;
-  margin-inline: auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-6);
 }
 
