@@ -104,7 +104,8 @@
     </script>
     <noscript>
       <style>
-        .service-card {
+        .service-card,
+        .course-card {
           opacity: 1 !important;
           transform: none !important;
         }
@@ -237,6 +238,7 @@
           <ul role="list" class="nav-list">
             <li><a class="nav-link" href="#intro">Home</a></li>
             <li><a class="nav-link" href="#services">Services</a></li>
+            <li><a class="nav-link" href="#courses">Courses</a></li>
             <li><a class="nav-link" href="#about">About</a></li>
             <li><a class="nav-link" href="#contact">Contact</a></li>
           </ul>
@@ -439,6 +441,150 @@
               <span class="skills-tag skills-tag--standard">ISO 21434</span>
               <span class="skills-tag skills-tag--standard">STRIDE/TARA</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COURSES -->
+      <section id="courses" class="section section--courses" aria-labelledby="courses-title">
+        <div class="container">
+          <p class="section-eyebrow">Training &amp; Education</p>
+          <h2 id="courses-title" class="section-title">Popular Courses</h2>
+          <p class="section-subtitle">
+            Practical, hands-on training in safety-critical software and cybersecurity — delivered
+            at your organisation.
+          </p>
+
+          <ul role="list" class="courses-grid">
+            <!-- Card 1: Threat Modeling -->
+            <li>
+              <article class="course-card" aria-labelledby="card-tm-title">
+                <span class="course-badge">Popular</span>
+                <div class="card-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                    <line x1="12.5" y1="12.5" x2="15" y2="15"></line>
+                  </svg>
+                </div>
+                <h3 id="card-tm-title" class="card-title">Threat Modeling for Embedded Systems</h3>
+                <p class="card-desc">
+                  Hands-on application of STRIDE and TARA to identify, assess, and prioritise
+                  cybersecurity threats in embedded and connected products — structured around
+                  IEC&nbsp;62443 and ISO&nbsp;21434. Leave with a repeatable threat modelling
+                  process you can apply to your own architecture from day one.
+                </p>
+                <a
+                  class="btn btn--secondary course-btn"
+                  href="mailto:hello@fredstamconsulting.se?subject=Course%20Enquiry%3A%20Threat%20Modeling%20for%20Embedded%20Systems"
+                  aria-label="Book course: Threat Modeling for Embedded Systems (opens email)"
+                >
+                  Book this course
+                </a>
+              </article>
+            </li>
+
+            <!-- Card 2: Safety-Critical Fundamentals -->
+            <li>
+              <article class="course-card" aria-labelledby="card-sf-title">
+                <span class="course-badge">Popular</span>
+                <div class="card-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+                <h3 id="card-sf-title" class="card-title">Safety-Critical Software Fundamentals</h3>
+                <p class="card-desc">
+                  A practical introduction to the engineering discipline behind safety-critical
+                  software — covering the core requirements of DO-178C and ISO&nbsp;26262, from
+                  development assurance levels to traceability and verification. Build the mental
+                  model that turns compliance from an obstacle into an engineering practice.
+                </p>
+                <a
+                  class="btn btn--secondary course-btn"
+                  href="mailto:hello@fredstamconsulting.se?subject=Course%20Enquiry%3A%20Safety-Critical%20Software%20Fundamentals"
+                  aria-label="Book course: Safety-Critical Software Fundamentals (opens email)"
+                >
+                  Book this course
+                </a>
+              </article>
+            </li>
+
+            <!-- Card 3: Secure Coding -->
+            <li>
+              <article class="course-card" aria-labelledby="card-sc2-title">
+                <span class="course-badge">Popular</span>
+                <div class="card-icon" aria-hidden="true">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.75"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <h3 id="card-sc2-title" class="card-title">Secure Coding for Embedded C/C++</h3>
+                <p class="card-desc">
+                  Defensive coding techniques for embedded C and C++ — covering memory safety,
+                  common vulnerability classes, MISRA alignment, and secure-by-design patterns.
+                  Write code that holds up under adversarial conditions and satisfies the security
+                  evidence requirements of your next certification.
+                </p>
+                <a
+                  class="btn btn--secondary course-btn"
+                  href="mailto:hello@fredstamconsulting.se?subject=Course%20Enquiry%3A%20Secure%20Coding%20for%20Embedded%20C%2FC%2B%2B"
+                  aria-label="Book course: Secure Coding for Embedded C/C++ (opens email)"
+                >
+                  Book this course
+                </a>
+              </article>
+            </li>
+          </ul>
+
+          <div class="courses-callout">
+            <p class="courses-callout-text">
+              Need something tailored to your team? I also deliver custom training on any topic —
+              adapted to your domain, standards, and experience level.
+            </p>
+            <a
+              class="btn btn--primary"
+              href="mailto:hello@fredstamconsulting.se?subject=Custom%20Course%20Enquiry"
+              aria-label="Get in touch about a custom course (opens email)"
+            >
+              Get in touch
+            </a>
           </div>
         </div>
       </section>

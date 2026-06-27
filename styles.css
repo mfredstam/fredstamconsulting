@@ -746,6 +746,104 @@ ul {
 }
 
 /* ============================================================
+   COURSES SECTION
+   ============================================================ */
+
+.section--courses {
+  background: linear-gradient(
+    180deg,
+    var(--color-surface) 0%,
+    color-mix(in srgb, var(--color-surface) 94%, var(--color-accent-blue)) 100%
+  );
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 767px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.courses-grid > li {
+  display: flex;
+}
+
+.course-card {
+  position: relative;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.course-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.course-card:hover {
+  border-color: var(--color-accent-teal);
+  box-shadow: 0 4px 24px color-mix(in srgb, var(--color-accent-teal) 12%, transparent);
+}
+
+.course-badge {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background-color: var(--color-accent-teal);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.course-card .card-desc {
+  flex: 1;
+}
+
+.course-btn {
+  margin-top: var(--space-6);
+  align-self: flex-start;
+}
+
+.courses-callout {
+  margin-top: var(--space-12);
+  max-width: 600px;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.courses-callout-text {
+  font-size: 1.0625rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* ============================================================
    ABOUT SECTION
    ============================================================ */
 
@@ -862,7 +960,8 @@ ul {
     scroll-behavior: auto !important;
   }
 
-  .service-card {
+  .service-card,
+  .course-card {
     opacity: 1;
     transform: none;
   }
