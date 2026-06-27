@@ -599,6 +599,23 @@ ul {
   background-color: color-mix(in srgb, var(--color-accent-teal) 8%, transparent);
 }
 
+.btn--teal {
+  background-color: var(--color-accent-teal);
+  color: #fff;
+}
+
+.btn--teal:hover {
+  background-color: color-mix(in srgb, var(--color-accent-teal) 80%, #fff);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--color-accent-teal) 30%, transparent);
+}
+
+.btn--teal:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 /* ============================================================
    SERVICES SECTION
    ============================================================ */
