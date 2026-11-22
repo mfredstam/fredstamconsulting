@@ -1,13 +1,13 @@
 {
   "devDependencies": {
-    "@axe-core/playwright": "latest",
-    "@playwright/test": "latest",
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1",
     "html-validate": "latest",
     "serve": "^14"
   },
   "scripts": {
     "test": "npm run test:html && npm run test:e2e",
-    "test:html": "html-validate index.html",
+    "test:html": "html-validate index.html courses.html",
     "test:e2e": "playwright test",
     "test:smoke": "playwright test --config playwright.production.config.js",
     "og-image": "node scripts/generate-og-image.js"
