@@ -60,6 +60,9 @@
   --color-surface: #252930;
   --color-accent-blue: #4a6fa5;
   --color-accent-teal: #3d8b85;
+  /* Darker teal for filled components with white text: #3d8b85 + #fff is only 4.02:1
+     (WCAG AA requires 4.5:1); #2e6b66 + #fff is 6.16:1 */
+  --color-accent-teal-dark: #2e6b66;
   --color-text-primary: #d0d5dd;
   --color-text-secondary: #8b939e;
   --color-cta: #5a9bf5;
@@ -600,12 +603,12 @@ ul {
 }
 
 .btn--teal {
-  background-color: var(--color-accent-teal);
+  background-color: var(--color-accent-teal-dark);
   color: #fff;
 }
 
 .btn--teal:hover {
-  background-color: color-mix(in srgb, var(--color-accent-teal) 80%, #fff);
+  background-color: color-mix(in srgb, var(--color-accent-teal-dark) 80%, #000);
   color: #fff;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px color-mix(in srgb, var(--color-accent-teal) 30%, transparent);
@@ -824,7 +827,7 @@ ul {
   position: absolute;
   top: var(--space-4);
   right: var(--space-4);
-  background-color: var(--color-accent-teal);
+  background-color: var(--color-accent-teal-dark);
   color: #fff;
   border-radius: var(--radius);
   padding: 0.25rem 0.625rem;
