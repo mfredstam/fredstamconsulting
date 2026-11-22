@@ -47,6 +47,11 @@ test.describe('Page structure', () => {
     expect(result.footerYear).toBe(result.currentYear);
   });
 
+  test('scroll-spy highlights the section in view', async ({ page }) => {
+    await page.locator('#services').scrollIntoViewIfNeeded();
+    await expect(page.locator('a.nav-link[href="#services"]')).toHaveClass(/is-active/);
+  });
+
   test('all external links have rel="noopener noreferrer"', async ({ page }) => {
     const links = await page.locator('a[target="_blank"]').all();
     for (const link of links) {
