@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "npm run test:html && npm run test:e2e",
-    "test:html": "html-validate index.html",
+    "test:html": "html-validate index.html courses.html",
     "test:e2e": "playwright test",
     "test:smoke": "playwright test --config playwright.production.config.js",
     "og-image": "node scripts/generate-og-image.js"
