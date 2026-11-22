@@ -23,6 +23,18 @@ test.describe('Page structure', () => {
     }
   });
 
+  test('nav has exactly four links and nothing on the page links to a courses page', async ({
+    page,
+  }) => {
+    await expect(page.locator('a.nav-link')).toHaveCount(4);
+    await expect(page.locator('a[href*="courses"]')).toHaveCount(0);
+    await expect(page.locator('#courses')).toHaveCount(0);
+  });
+
+  test('three service cards are present', async ({ page }) => {
+    await expect(page.locator('#services .service-card')).toHaveCount(3);
+  });
+
   test('skip link is present', async ({ page }) => {
     await expect(page.locator('.skip-link')).toHaveCount(1);
   });
@@ -33,6 +45,11 @@ test.describe('Page structure', () => {
       currentYear: String(new Date().getFullYear()),
     }));
     expect(result.footerYear).toBe(result.currentYear);
+  });
+
+  test('scroll-spy highlights the section in view', async ({ page }) => {
+    await page.locator('#services').scrollIntoViewIfNeeded();
+    await expect(page.locator('a.nav-link[href="#services"]')).toHaveClass(/is-active/);
   });
 
   test('all external links have rel="noopener noreferrer"', async ({ page }) => {
@@ -122,47 +139,7 @@ test.describe('Booking link', () => {
   });
 
   test('contact description mentions booking via Google Calendar', async ({ page }) => {
-    const desc = page.locator('#contact .contact-desc').nth(1);
+    const desc = page.locator('#contact .contact-desc').nth(0);
     await expect(desc).toContainText('book a meeting directly via Google Calendar');
-  });
-});
-
-test.describe('Courses section', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-  });
-
-  test('#courses nav link is present', async ({ page }) => {
-    await expect(page.locator('a.nav-link[href="#courses"]')).toHaveCount(1);
-  });
-
-  test('courses section has heading "Level Up Your Team"', async ({ page }) => {
-    await expect(page.locator('#courses h2')).toHaveText('Level Up Your Team');
-  });
-
-  test('three course cards are present, each with a Popular badge', async ({ page }) => {
-    await expect(page.locator('#courses .course-card')).toHaveCount(3);
-    await expect(page.locator('#courses .course-badge')).toHaveCount(3);
-  });
-
-  test('Book this course buttons have correct mailto hrefs', async ({ page }) => {
-    const hrefs = [
-      'mailto:hello@fredstamconsulting.se?subject=Course%20Enquiry%3A%20Threat%20Modeling%20for%20Embedded%20Systems',
-      'mailto:hello@fredstamconsulting.se?subject=Course%20Enquiry%3A%20Safety-Critical%20Software%20Fundamentals',
-      'mailto:hello@fredstamconsulting.se?subject=Course%20Enquiry%3A%20Secure%20Coding%20for%20Embedded%20C%2FC%2B%2B',
-    ];
-    const buttons = await page.locator('#courses .course-btn').all();
-    expect(buttons).toHaveLength(3);
-    for (let i = 0; i < buttons.length; i++) {
-      await expect(buttons[i]).toHaveAttribute('href', hrefs[i]);
-    }
-  });
-
-  test('Get in touch button links to custom course enquiry email', async ({ page }) => {
-    const btn = page.locator(
-      '#courses a.btn[href="mailto:hello@fredstamconsulting.se?subject=Custom%20Course%20Enquiry"]',
-    );
-    await expect(btn).toHaveCount(1);
-    await expect(btn).toHaveText('Get in touch');
   });
 });

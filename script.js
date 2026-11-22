@@ -74,7 +74,9 @@ const spyObserver = new IntersectionObserver(
     const id = visibleEntry ? visibleEntry.target.id : activeSectionId;
     if (!id) return;
     navLinks.forEach((link) => {
-      link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+      // Compare by URL fragment so subpage links like "index.html#about" also match
+      const fragment = (link.getAttribute('href') || '').split('#').pop();
+      link.classList.toggle('is-active', fragment === id);
     });
   },
   {
