@@ -296,6 +296,13 @@ ul {
   width: 100%;
 }
 
+/* Compact CTA button inside the nav list */
+.nav-cta {
+  min-height: 40px;
+  padding: 0.5rem 1.125rem;
+  font-size: 0.875rem;
+}
+
 /* Hamburger button */
 .hamburger {
   display: none;
@@ -387,6 +394,10 @@ ul {
     padding-block: var(--space-3);
     padding-inline: var(--space-2);
     min-height: 48px;
+  }
+
+  .nav-cta {
+    margin-top: var(--space-2);
   }
 }
 
@@ -490,7 +501,12 @@ ul {
   flex-wrap: wrap;
   gap: var(--space-4);
   align-items: center;
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-3);
+}
+
+.hero-note {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
 }
 
 .availability-badge {
@@ -728,6 +744,12 @@ ul {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+}
+
+.services-cta {
+  margin-top: var(--space-10);
+  text-align: center;
+  color: var(--color-text-secondary);
 }
 
 .skills-row {
