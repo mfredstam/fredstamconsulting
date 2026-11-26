@@ -40,12 +40,22 @@
     <meta name="author" content="Marcus Fredstam" />
     <link rel="canonical" href="https://fredstamconsulting.se/" />
     <meta name="theme-color" content="#1A1D23" />
+    <meta name="color-scheme" content="dark" />
     <link
       rel="icon"
       type="image/svg+xml"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234A6FA5'/%3E%3Crect x='10' y='10' width='12' height='12' rx='1.5' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='13' y1='10' x2='13' y2='6' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='10' x2='19' y2='6' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='13' y1='22' x2='13' y2='26' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='22' x2='19' y2='26' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='10' y1='13' x2='6' y2='13' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='10' y1='16' x2='6' y2='16' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='10' y1='19' x2='6' y2='19' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='22' y1='13' x2='26' y2='13' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='22' y1='16' x2='26' y2='16' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='22' y1='19' x2='26' y2='19' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"
     />
     <title>Safety-Critical Embedded Software Engineering | Fredstam Consulting</title>
+    <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/inter-bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="fonts/ibm-plex-mono-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
       {
@@ -80,6 +90,7 @@
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "sales",
+              "email": "mailto:hello@fredstamconsulting.se",
               "url": "https://www.linkedin.com/in/marcus-fredstam/",
               "availableLanguage": ["English", "Swedish"]
             }
@@ -276,42 +287,102 @@
       <!-- HERO / INTRO -->
       <section id="intro" class="section section--hero" aria-labelledby="hero-heading">
         <div class="container hero-inner">
-          <p class="eyebrow">Fredstam Consulting</p>
-          <h1 id="hero-heading" class="hero-name">
-            I engineer safety-critical embedded software that ships on time — and passes the audit.
-          </h1>
-          <p class="hero-tagline">DO-178C · ISO 26262 · MISRA C</p>
-          <p class="hero-sub">
-            I help aerospace, automotive and defense teams take embedded software from first
-            architecture sketch to verified, certification-ready code. Based in Linköping, Sweden.
-          </p>
-          <p class="availability-badge">
-            <span class="availability-dot" aria-hidden="true"></span>
-            Available for new engagements — booking now
-          </p>
-          <div class="hero-actions">
-            <a
-              class="btn btn--primary"
-              href="https://calendar.app.google/rnSpPJT3fTj9bpxi9"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Book a 30-minute intro call with Marcus Fredstam via Google Calendar (opens in new tab)"
-            >
-              Book a 30-min intro call
-            </a>
-            <a
-              class="btn btn--secondary"
-              href="https://www.linkedin.com/in/marcus-fredstam/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Message Marcus Fredstam on LinkedIn (opens in new tab)"
-            >
-              Message me on LinkedIn
-            </a>
+          <div class="hero-copy">
+            <p class="eyebrow">Fredstam Consulting</p>
+            <h1 id="hero-heading" class="hero-name">
+              I engineer safety-critical embedded software that ships on time — and passes the
+              audit.
+            </h1>
+            <p class="hero-tagline">DO-178C · ISO 26262 · MISRA C</p>
+            <p class="hero-sub">
+              I help aerospace, automotive and defense teams take embedded software from first
+              architecture sketch to verified, certification-ready code. Based in Linköping, Sweden.
+            </p>
+            <p class="availability-badge">
+              <span class="availability-dot" aria-hidden="true"></span>
+              Currently booking new engagements — ask for the next opening
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn--primary"
+                href="https://calendar.app.google/rnSpPJT3fTj9bpxi9"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Book a 30-minute intro call with Marcus Fredstam via Google Calendar (opens in new tab)"
+              >
+                Book a 30-min intro call
+              </a>
+              <a
+                class="btn btn--secondary"
+                href="https://www.linkedin.com/in/marcus-fredstam/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Message Marcus Fredstam on LinkedIn (opens in new tab)"
+              >
+                Message me on LinkedIn
+              </a>
+            </div>
+            <p class="hero-note">
+              30 minutes to talk through your project — and an honest take on whether I can help.
+            </p>
           </div>
-          <p class="hero-note">
-            30 minutes to talk through your project — and an honest take on whether I can help.
-          </p>
+          <div class="hero-visual">
+            <svg
+              class="hero-diagram"
+              viewBox="0 0 360 470"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-labelledby="hero-diagram-title"
+            >
+              <title id="hero-diagram-title">
+                Pipeline from requirements through architecture, implementation and verification to
+                certification evidence, with a traceability loop back to the requirements
+              </title>
+              <!-- traceability loop -->
+              <path class="diagram-loop" d="M 300 406 L 336 406 L 336 66 L 306 66" />
+              <polyline class="diagram-arrow" points="312 60 304 66 312 72" />
+              <text
+                class="diagram-loop-label"
+                x="350"
+                y="236"
+                text-anchor="middle"
+                transform="rotate(-90 350 236)"
+              >
+                TRACEABILITY
+              </text>
+              <!-- 01 requirements -->
+              <rect class="diagram-box" x="40" y="10" width="260" height="56" rx="10" />
+              <text class="diagram-step" x="58" y="44">01</text>
+              <text class="diagram-label" x="170" y="44" text-anchor="middle">Requirements</text>
+              <line class="diagram-arrow" x1="170" y1="70" x2="170" y2="94" />
+              <polyline class="diagram-arrow" points="164 92 170 100 176 92" />
+              <!-- 02 architecture -->
+              <rect class="diagram-box" x="40" y="102" width="260" height="56" rx="10" />
+              <text class="diagram-step" x="58" y="136">02</text>
+              <text class="diagram-label" x="170" y="136" text-anchor="middle">Architecture</text>
+              <line class="diagram-arrow" x1="170" y1="162" x2="170" y2="186" />
+              <polyline class="diagram-arrow" points="164 184 170 192 176 184" />
+              <!-- 03 implementation -->
+              <rect class="diagram-box" x="40" y="194" width="260" height="56" rx="10" />
+              <text class="diagram-step" x="58" y="228">03</text>
+              <text class="diagram-label" x="170" y="228" text-anchor="middle">Implementation</text>
+              <line class="diagram-arrow" x1="170" y1="254" x2="170" y2="278" />
+              <polyline class="diagram-arrow" points="164 276 170 284 176 276" />
+              <!-- 04 verification -->
+              <rect class="diagram-box" x="40" y="286" width="260" height="56" rx="10" />
+              <text class="diagram-step" x="58" y="320">04</text>
+              <text class="diagram-label" x="170" y="320" text-anchor="middle">Verification</text>
+              <line class="diagram-arrow" x1="170" y1="346" x2="170" y2="370" />
+              <polyline class="diagram-arrow" points="164 368 170 376 176 368" />
+              <!-- 05 certification evidence -->
+              <rect class="diagram-box" x="40" y="378" width="260" height="56" rx="10" />
+              <text class="diagram-step" x="58" y="412">05</text>
+              <text class="diagram-label" x="170" y="412" text-anchor="middle">
+                Certification evidence
+              </text>
+              <polyline class="diagram-check" points="272 407 279 414 292 399" />
+            </svg>
+          </div>
           <div class="scroll-hint" aria-hidden="true">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -475,8 +546,9 @@
           <p class="contact-desc">
             I take on project-based and retainer engagements — for product teams that need
             safety-critical software done right, and for consulting firms building their bench.
-            Reach out via LinkedIn or book a meeting directly via Google Calendar; I usually reply
-            within one business day.
+            Reach out via LinkedIn, email
+            <a href="mailto:hello@fredstamconsulting.se">hello@fredstamconsulting.se</a>, or book a
+            meeting directly via Google Calendar; I usually reply within one business day.
           </p>
           <div class="contact-actions">
             <a
@@ -524,13 +596,33 @@
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer" role="contentinfo">
       <div class="container footer-inner">
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <ul role="list" class="footer-nav-list">
+            <li><a href="#intro">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/marcus-fredstam/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Fredstam Consulting on LinkedIn (opens in new tab)"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a href="mailto:hello@fredstamconsulting.se">hello@fredstamconsulting.se</a>
+            </li>
+          </ul>
+        </nav>
         <p class="footer-copy">
           &copy; <span id="footer-year"></span> Fredstam Consulting. All rights reserved.
         </p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script
       data-goatcounter="https://fredstam.goatcounter.com/count"
       async
