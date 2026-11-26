@@ -55,6 +55,8 @@
    ============================================================ */
 
 :root {
+  color-scheme: dark;
+
   /* Colors */
   --color-bg: #1a1d23;
   --color-surface: #252930;
@@ -63,6 +65,13 @@
   /* Darker teal for filled components with white text: #3d8b85 + #fff is only 4.02:1
      (WCAG AA requires 4.5:1); #2e6b66 + #fff is 6.16:1 */
   --color-accent-teal-dark: #2e6b66;
+  /* Lighter teal for text on dark backgrounds: #3d8b85 on #1a1d23 is only 4.20:1 and on
+     #252930 only 3.64:1 (AA requires 4.5:1 for normal text); #55ada6 is 6.36:1 on --color-bg
+     and 5.50:1 on --color-surface. Keep #3d8b85 for icons/borders (non-text, 3:1 needed) */
+  --color-accent-teal-text: #55ada6;
+  /* Darker blue for primary-button hover with white text: #fff on #5a9bf5 is only 2.82:1;
+     #fff on #3e5c8c is 6.74:1 */
+  --color-accent-blue-dark: #3e5c8c;
   --color-text-primary: #d0d5dd;
   --color-text-secondary: #8b939e;
   --color-cta: #5a9bf5;
@@ -121,7 +130,11 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* intentional fallback: clip (where supported) doesn't create a scroll container, so position: sticky keeps working */
+  /* stylelint-disable declaration-block-no-duplicate-properties */
   overflow-x: hidden;
+  overflow-x: clip;
+  /* stylelint-enable declaration-block-no-duplicate-properties */
 }
 
 img,
@@ -209,6 +222,9 @@ ul {
   top: 0;
   z-index: 100;
   height: var(--navbar-height);
+  /* intentional fallback for browsers without color-mix() */
+  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+  background-color: var(--color-surface);
   background-color: color-mix(in srgb, var(--color-surface) 90%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -294,6 +310,13 @@ ul {
 .nav-link:hover::after,
 .nav-link.is-active::after {
   width: 100%;
+}
+
+/* Compact CTA button inside the nav list */
+.nav-cta {
+  min-height: 40px;
+  padding: 0.5rem 1.125rem;
+  font-size: 0.875rem;
 }
 
 /* Hamburger button */
@@ -388,6 +411,10 @@ ul {
     padding-inline: var(--space-2);
     min-height: 48px;
   }
+
+  .nav-cta {
+    margin-top: var(--space-2);
+  }
 }
 
 /* ============================================================
@@ -395,6 +422,9 @@ ul {
    ============================================================ */
 
 .section--hero {
+  /* intentional fallback for browsers without svh */
+  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+  min-height: calc(100vh - var(--navbar-height));
   min-height: calc(100svh - var(--navbar-height));
   display: flex;
   align-items: center;
@@ -455,7 +485,7 @@ ul {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-accent-teal);
+  color: var(--color-accent-teal-text);
   margin-bottom: var(--space-4);
 }
 
@@ -472,7 +502,7 @@ ul {
   font-family: var(--font-mono);
   font-size: clamp(0.9375rem, 2.2vw, 1.125rem);
   font-weight: 400;
-  color: var(--color-accent-teal);
+  color: var(--color-accent-teal-text);
   margin-bottom: var(--space-4);
   max-width: 680px;
   line-height: 1.5;
@@ -490,19 +520,97 @@ ul {
   flex-wrap: wrap;
   gap: var(--space-4);
   align-items: center;
-  margin-bottom: var(--space-10);
+  margin-bottom: var(--space-3);
+}
+
+.hero-note {
+  margin-top: var(--space-1);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Hero two-column layout with pipeline diagram (desktop) */
+@media (min-width: 900px) {
+  .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-12);
+  }
+
+  /* Narrower column than the single-column hero, so cap the headline to keep the CTAs above the fold */
+  .hero-name {
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  }
+
+  .hero-diagram {
+    max-width: 300px;
+  }
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 899px) {
+  .hero-visual {
+    margin-top: var(--space-10);
+    justify-content: flex-start;
+  }
+}
+
+.hero-diagram {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+}
+
+/* Abstract PCB-trace/chip motif (hero visual) */
+.hero-pcb .pcb-chip {
+  fill: var(--color-surface);
+  stroke: var(--color-accent-blue);
+  stroke-width: 1.5;
+}
+
+.hero-pcb .pcb-chip-inner {
+  fill: none;
+  stroke: var(--color-accent-teal);
+  stroke-width: 1.5;
+}
+
+.hero-pcb .pcb-trace {
+  fill: none;
+  stroke: var(--color-accent-teal);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-pcb .pcb-via {
+  fill: var(--color-bg);
+  stroke: var(--color-accent-teal);
+  stroke-width: 1.5;
+}
+
+.hero-pcb .pcb-signal {
+  fill: none;
+  stroke: var(--color-accent-teal-text);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .availability-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-bottom: var(--space-5);
   padding: 0.35rem 0.75rem;
   border: 1px solid var(--color-accent-teal);
   border-radius: 999px;
   font-size: 0.8125rem;
-  color: var(--color-accent-teal);
+  color: var(--color-accent-teal-text);
   line-height: 1;
 }
 
@@ -579,10 +687,10 @@ ul {
 }
 
 .btn--primary:hover {
-  background-color: var(--color-cta);
+  background-color: var(--color-accent-blue-dark);
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px color-mix(in srgb, var(--color-cta) 30%, transparent);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--color-accent-blue-dark) 40%, transparent);
 }
 
 .btn--primary:active {
@@ -624,6 +732,7 @@ ul {
    ============================================================ */
 
 .section--services {
+  background-color: var(--color-surface); /* fallback for browsers without color-mix() */
   background: linear-gradient(
     180deg,
     var(--color-surface) 0%,
@@ -654,7 +763,7 @@ ul {
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-accent-teal);
+  color: var(--color-accent-teal-text);
   margin-bottom: var(--space-3);
 }
 
@@ -730,6 +839,13 @@ ul {
   gap: var(--space-3);
 }
 
+.services-cta {
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
 .skills-row {
   display: flex;
   flex-wrap: wrap;
@@ -762,7 +878,7 @@ ul {
 .skills-tag--standard {
   background: transparent;
   border-color: var(--color-accent-teal);
-  color: var(--color-accent-teal);
+  color: var(--color-accent-teal-text);
 }
 
 /* ============================================================
@@ -868,6 +984,7 @@ ul {
    ============================================================ */
 
 .section--about {
+  background-color: var(--color-surface); /* fallback for browsers without color-mix() */
   background: linear-gradient(
     180deg,
     var(--color-surface) 0%,
@@ -904,6 +1021,7 @@ ul {
    ============================================================ */
 
 .section--contact {
+  background-color: var(--color-bg); /* fallback for browsers without color-mix() */
   background: linear-gradient(
     180deg,
     var(--color-bg) 0%,
@@ -955,10 +1073,29 @@ ul {
 
 .footer-inner {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--space-4);
+}
+
+.footer-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2) var(--space-6);
+}
+
+.footer-nav-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.footer-nav-list a:hover {
+  color: var(--color-text-primary);
 }
 
 .footer-copy {

@@ -49,43 +49,59 @@ if (hamburgerBtn && siteNav) {
 /* ──────────────────────────────────────────────
    3. Scroll-spy (active nav link highlight)
 ────────────────────────────────────────────── */
-const sections = document.querySelectorAll('section[id]');
+const sections = Array.from(document.querySelectorAll('section[id]'));
 const navLinks = document.querySelectorAll('.nav-link');
 
-// Read navbar height from CSS custom property
+// Read navbar height from CSS custom property, resolving rem against the root font size
+// (parseInt('4rem') would return 4, not 64)
 function getNavbarHeight() {
-  return parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue('--navbar-height') || '64',
-    10,
-  );
+  const value = getComputedStyle(document.documentElement)
+    .getPropertyValue('--navbar-height')
+    .trim();
+  const parsed = parseFloat(value);
+  if (Number.isNaN(parsed)) return 64;
+  if (value.endsWith('rem')) {
+    return parsed * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  }
+  return parsed;
 }
 
-// Track which section is "current" so upward scroll works
-let activeSectionId = null;
+// Scroll-position based spy: the current section is the last one whose top edge
+// has passed the navbar line. Works on any viewport height and at page bottom
+// (where a rootMargin band can fail to intersect the last section).
+function updateScrollSpy() {
+  const pos = window.scrollY + getNavbarHeight() + 1;
+  let currentId = sections.length > 0 ? sections[0].id : null;
+  for (const section of sections) {
+    if (section.offsetTop <= pos) currentId = section.id;
+  }
+  // At the very bottom of the page, force the last section active
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+    currentId = sections[sections.length - 1].id;
+  }
+  if (!currentId) return;
+  navLinks.forEach((link) => {
+    // Compare by URL fragment so subpage links like "index.html#about" also match
+    const fragment = (link.getAttribute('href') || '').split('#').pop();
+    link.classList.toggle('is-active', fragment === currentId);
+  });
+}
 
-const spyObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        activeSectionId = entry.target.id;
-      }
-    });
-    const visibleEntry = entries.find((e) => e.isIntersecting);
-    const id = visibleEntry ? visibleEntry.target.id : activeSectionId;
-    if (!id) return;
-    navLinks.forEach((link) => {
-      // Compare by URL fragment so subpage links like "index.html#about" also match
-      const fragment = (link.getAttribute('href') || '').split('#').pop();
-      link.classList.toggle('is-active', fragment === id);
+let spyTicking = false;
+window.addEventListener(
+  'scroll',
+  () => {
+    if (spyTicking) return;
+    spyTicking = true;
+    window.requestAnimationFrame(() => {
+      updateScrollSpy();
+      spyTicking = false;
     });
   },
-  {
-    rootMargin: `-${getNavbarHeight()}px 0px -50% 0px`,
-    threshold: 0,
-  },
+  { passive: true },
 );
-
-sections.forEach((section) => spyObserver.observe(section));
+window.addEventListener('resize', updateScrollSpy);
+updateScrollSpy();
 
 /* ──────────────────────────────────────────────
    4. Service card scroll-reveal (staggered)

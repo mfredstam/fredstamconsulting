@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Fredstam Consulting — senior embedded software engineering for safety-critical systems in aerospace, automotive and defense, built to DO-178C and ISO 26262 requirements from day one. Based in Linköping, Sweden."
+      content="Senior embedded software consultant for safety-critical systems in aerospace, automotive and defense. DO-178C &amp; ISO 26262 from day one. Linköping, Sweden."
     />
     <meta
       property="og:title"
@@ -40,12 +40,22 @@
     <meta name="author" content="Marcus Fredstam" />
     <link rel="canonical" href="https://fredstamconsulting.se/" />
     <meta name="theme-color" content="#1A1D23" />
+    <meta name="color-scheme" content="dark" />
     <link
       rel="icon"
       type="image/svg+xml"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234A6FA5'/%3E%3Crect x='10' y='10' width='12' height='12' rx='1.5' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='13' y1='10' x2='13' y2='6' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='10' x2='19' y2='6' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='13' y1='22' x2='13' y2='26' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='19' y1='22' x2='19' y2='26' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='10' y1='13' x2='6' y2='13' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='10' y1='16' x2='6' y2='16' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='10' y1='19' x2='6' y2='19' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='22' y1='13' x2='26' y2='13' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='22' y1='16' x2='26' y2='16' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='22' y1='19' x2='26' y2='19' stroke='%23fff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"
     />
     <title>Safety-Critical Embedded Software Engineering | Fredstam Consulting</title>
+    <link rel="preload" href="fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/inter-bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="fonts/ibm-plex-mono-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
       {
@@ -80,6 +90,7 @@
             "contactPoint": {
               "@type": "ContactPoint",
               "contactType": "sales",
+              "email": "mailto:hello@fredstamconsulting.se",
               "url": "https://www.linkedin.com/in/marcus-fredstam/",
               "availableLanguage": ["English", "Swedish"]
             }
@@ -242,6 +253,17 @@
             <li><a class="nav-link" href="#services">Services</a></li>
             <li><a class="nav-link" href="#about">About</a></li>
             <li><a class="nav-link" href="#contact">Contact</a></li>
+            <li>
+              <a
+                class="btn btn--primary nav-cta"
+                href="https://calendar.app.google/rnSpPJT3fTj9bpxi9"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Book a call with Marcus Fredstam via Google Calendar (opens in new tab)"
+              >
+                Book a call
+              </a>
+            </li>
           </ul>
         </nav>
 
@@ -265,36 +287,86 @@
       <!-- HERO / INTRO -->
       <section id="intro" class="section section--hero" aria-labelledby="hero-heading">
         <div class="container hero-inner">
-          <p class="eyebrow">Fredstam Consulting</p>
-          <h1 id="hero-heading" class="hero-name">
-            I engineer safety-critical embedded software that ships on time — and holds up under
-            DO-178C and ISO 26262 scrutiny.
-          </h1>
-          <p class="hero-tagline">ISO 26262 · DO-178C · MISRA C</p>
-          <p class="hero-sub">
-            Senior embedded software engineer partnering with teams in aerospace, automotive,
-            defense and other regulated industries — from architecture and implementation to
-            verification. Based in Linköping, Sweden.
-          </p>
-          <div class="hero-actions">
-            <a
-              class="btn btn--primary"
-              href="https://www.linkedin.com/in/marcus-fredstam/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View Marcus Fredstam's LinkedIn profile (opens in new tab)"
+          <div class="hero-copy">
+            <p class="eyebrow">Fredstam Consulting</p>
+            <h1 id="hero-heading" class="hero-name">
+              I engineer safety-critical embedded software that ships on time — and passes the
+              audit.
+            </h1>
+            <p class="hero-tagline">DO-178C · ISO 26262 · MISRA C</p>
+            <p class="hero-sub">
+              I help aerospace, automotive and defense teams take embedded software from first
+              architecture sketch to verified, certification-ready code. Based in Linköping, Sweden.
+            </p>
+            <p class="availability-badge">
+              <span class="availability-dot" aria-hidden="true"></span>
+              Currently booking new engagements — ask for the next opening
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn--primary"
+                href="https://calendar.app.google/rnSpPJT3fTj9bpxi9"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Book a 30-minute intro call with Marcus Fredstam via Google Calendar (opens in new tab)"
+              >
+                Book a 30-min intro call
+              </a>
+              <a
+                class="btn btn--secondary"
+                href="https://www.linkedin.com/in/marcus-fredstam/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Message Marcus Fredstam on LinkedIn (opens in new tab)"
+              >
+                Message me on LinkedIn
+              </a>
+            </div>
+            <p class="hero-note">
+              30 minutes to talk through your project — and an honest take on whether I can help.
+            </p>
+          </div>
+          <div class="hero-visual">
+            <svg
+              class="hero-diagram hero-pcb"
+              viewBox="0 0 360 470"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
-              Connect on LinkedIn
-            </a>
-            <a
-              class="btn btn--primary"
-              href="https://calendar.app.google/rnSpPJT3fTj9bpxi9"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Book a meeting with Marcus Fredstam via Google Calendar (opens in new tab)"
-            >
-              Book a Meeting
-            </a>
+              <!-- PCB traces with 45° bends, ending in vias -->
+              <path class="pcb-trace" d="M 150 185 L 150 120 L 118 88" />
+              <circle class="pcb-via" cx="113" cy="83" r="4.5" />
+              <path class="pcb-trace" d="M 210 185 L 210 140 L 242 108" />
+              <circle class="pcb-via" cx="247" cy="103" r="4.5" />
+              <path class="pcb-trace" d="M 150 285 L 150 350 L 118 382" />
+              <circle class="pcb-via" cx="113" cy="387" r="4.5" />
+              <path class="pcb-trace" d="M 210 285 L 210 330 L 250 370" />
+              <circle class="pcb-via" cx="255" cy="375" r="4.5" />
+              <path class="pcb-trace" d="M 130 210 L 70 210 L 40 180" />
+              <circle class="pcb-via" cx="35" cy="175" r="4.5" />
+              <path class="pcb-trace" d="M 130 235 L 60 235" />
+              <circle class="pcb-via" cx="54" cy="235" r="4.5" />
+              <path class="pcb-trace" d="M 130 260 L 80 260 L 50 290" />
+              <circle class="pcb-via" cx="45" cy="295" r="4.5" />
+              <path class="pcb-trace" d="M 230 210 L 290 210 L 320 180" />
+              <circle class="pcb-via" cx="325" cy="175" r="4.5" />
+              <path class="pcb-trace" d="M 230 235 L 310 235" />
+              <circle class="pcb-via" cx="316" cy="235" r="4.5" />
+              <path class="pcb-trace" d="M 230 260 L 280 260 L 310 290" />
+              <circle class="pcb-via" cx="315" cy="295" r="4.5" />
+              <!-- extra corner traces -->
+              <path class="pcb-trace" d="M 60 60 L 110 60 L 140 90" />
+              <circle class="pcb-via" cx="145" cy="95" r="4.5" />
+              <path class="pcb-trace" d="M 300 410 L 250 410 L 220 380" />
+              <circle class="pcb-via" cx="215" cy="375" r="4.5" />
+              <!-- chip -->
+              <rect class="pcb-chip" x="130" y="185" width="100" height="100" rx="12" />
+              <rect class="pcb-chip-inner" x="152" y="207" width="56" height="56" rx="8" />
+              <polyline
+                class="pcb-signal"
+                points="160 235 168 235 168 225 176 225 176 235 184 235 184 245 192 245 192 235 200 235"
+              />
+            </svg>
           </div>
           <div class="scroll-hint" aria-hidden="true">
             <svg
@@ -318,7 +390,7 @@
       <section id="services" class="section section--services" aria-labelledby="services-heading">
         <div class="container">
           <p class="section-eyebrow">What I Do</p>
-          <h2 id="services-heading" class="section-title">Services</h2>
+          <h2 id="services-heading" class="section-title">What I offer</h2>
           <ul role="list" class="services-grid">
             <li>
               <article class="service-card" aria-labelledby="card-se-title">
@@ -342,9 +414,9 @@
                 </div>
                 <h3 id="card-se-title" class="card-title">Embedded Software Engineering</h3>
                 <p class="card-desc">
-                  Architecture and implementation of real-time embedded software in C, C++, and Rust
-                  — across bare-metal, RTOS, embedded Linux, and AUTOSAR. Robust code for long-lived
-                  products in regulated industries.
+                  Embedded software that runs for decades, not just demos. I design and implement
+                  real-time systems in C, C++ and Rust — bare-metal, RTOS, embedded Linux, AUTOSAR —
+                  for products in regulated industries.
                 </p>
               </article>
             </li>
@@ -372,9 +444,9 @@
                 </div>
                 <h3 id="card-sc-title" class="card-title">Safety-Critical Software</h3>
                 <p class="card-desc">
-                  Software developed to DO-178C and ISO&nbsp;26262 requirements, with focus on
-                  traceability, validation, and verification — requirements-based testing, coverage
-                  analysis, and the evidence to back it.
+                  DO-178C and ISO&nbsp;26262 development with the evidence to prove it —
+                  traceability, requirements-based testing, coverage analysis, verification. So
+                  certification never becomes your project's critical path.
                 </p>
               </article>
             </li>
@@ -399,9 +471,8 @@
                 </div>
                 <h3 id="card-sec-title" class="card-title">Secure Coding</h3>
                 <p class="card-desc">
-                  Secure and robust coding in embedded C/C++ — memory safety, defensive patterns,
-                  and alignment with MISRA&nbsp;C and CERT&nbsp;C/C++. Code that holds up under
-                  adversarial conditions.
+                  Memory-safe, defensive C/C++ aligned with MISRA&nbsp;C and CERT&nbsp;C/C++ — code
+                  that holds up in security reviews and against malicious input.
                 </p>
               </article>
             </li>
@@ -426,6 +497,11 @@
               <span class="skills-tag skills-tag--standard">CERT C/C++</span>
             </div>
           </div>
+
+          <p class="services-cta">
+            Not sure which service fits your project?
+            <a href="#contact">Book a call</a> and we'll figure it out together.
+          </p>
         </div>
       </section>
 
@@ -435,18 +511,14 @@
           <p class="section-eyebrow">Who I Am</p>
           <h2 id="about-heading" class="section-title">About Marcus</h2>
           <p class="about-bio">
-            I'm a senior embedded software engineer with 8+ years of experience in aerospace,
-            automotive, defense and other safety-critical domains — across the full development
-            lifecycle: architecture, implementation, and verification.
+            Senior embedded software engineer with 8+ years in aerospace, automotive and defense —
+            across the full lifecycle, from architecture to verification.
           </p>
-          <p class="about-pullquote">
-            I work best where the stakes are high and the process demands are real.
-          </p>
+          <p class="about-pullquote">I do my best work where getting it wrong isn't an option.</p>
           <p class="about-bio">
-            My value to a team isn't just technical — it's knowing how to navigate the standards,
-            structure the evidence, and keep a certification or security review on track. I'm
-            comfortable operating as a specialist resource within larger delivery teams, and I
-            understand what it takes to get a compliant product across the line.
+            My value isn't just the code — it's keeping the certification on track: navigating the
+            standards, structuring the evidence, and holding up in the review. I slot into larger
+            delivery teams as the safety-critical specialist.
           </p>
         </div>
       </section>
@@ -455,34 +527,32 @@
       <section id="contact" class="section section--contact" aria-labelledby="contact-heading">
         <div class="container contact-inner">
           <p class="section-eyebrow">Let's Work Together</p>
-          <h2 id="contact-heading" class="section-title">Get in Touch</h2>
+          <h2 id="contact-heading" class="section-title">Let's talk about your project</h2>
           <p class="contact-desc">
-            Fredstam Consulting is available for project-based and retainer engagements. Reach out
-            via LinkedIn to start a conversation, or book a meeting directly via Google Calendar.
-            Initial enquiries are typically answered within one business day.
-          </p>
-          <p class="contact-desc">
-            Consulting firms looking to add safety-critical software expertise to their bench are
-            welcome to get in touch.
+            I take on project-based and retainer engagements — for product teams that need
+            safety-critical software done right, and for consulting firms building their bench.
+            Reach out via LinkedIn, email
+            <a href="mailto:hello@fredstamconsulting.se">hello@fredstamconsulting.se</a>, or book a
+            meeting directly via Google Calendar; I usually reply within one business day.
           </p>
           <div class="contact-actions">
-            <a
-              class="btn btn--primary"
-              href="https://www.linkedin.com/in/marcus-fredstam/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="View Marcus Fredstam's LinkedIn profile (opens in new tab)"
-            >
-              Connect on LinkedIn
-            </a>
             <a
               class="btn btn--primary"
               href="https://calendar.app.google/rnSpPJT3fTj9bpxi9"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Book a meeting with Marcus Fredstam via Google Calendar (opens in new tab)"
+              aria-label="Book a 30-minute intro call with Marcus Fredstam via Google Calendar (opens in new tab)"
             >
-              Book a Meeting
+              Book a 30-min intro call
+            </a>
+            <a
+              class="btn btn--secondary"
+              href="https://www.linkedin.com/in/marcus-fredstam/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Message Marcus Fredstam on LinkedIn (opens in new tab)"
+            >
+              Message me on LinkedIn
             </a>
           </div>
           <p class="contact-location">
@@ -511,13 +581,33 @@
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer" role="contentinfo">
       <div class="container footer-inner">
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <ul role="list" class="footer-nav-list">
+            <li><a href="#intro">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/marcus-fredstam/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Fredstam Consulting on LinkedIn (opens in new tab)"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a href="mailto:hello@fredstamconsulting.se">hello@fredstamconsulting.se</a>
+            </li>
+          </ul>
+        </nav>
         <p class="footer-copy">
           &copy; <span id="footer-year"></span> Fredstam Consulting. All rights reserved.
         </p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script
       data-goatcounter="https://fredstam.goatcounter.com/count"
       async
