@@ -112,17 +112,17 @@ test.describe('Booking link', () => {
     await page.goto('/');
   });
 
-  test('Book a Meeting button is present in contact section with correct href', async ({
+  test('intro call button is present in contact section with correct href', async ({
     page,
   }) => {
     const btn = page.locator(
       '#contact a.btn[href="https://calendar.app.google/rnSpPJT3fTj9bpxi9"]',
     );
     await expect(btn).toHaveCount(1);
-    await expect(btn).toHaveText('Book a Meeting');
+    await expect(btn).toHaveText('Book a 30-min intro call');
   });
 
-  test('Book a Meeting button opens in new tab with noopener noreferrer', async ({ page }) => {
+  test('intro call button opens in new tab with noopener noreferrer', async ({ page }) => {
     const btn = page.locator(
       '#contact a.btn[href="https://calendar.app.google/rnSpPJT3fTj9bpxi9"]',
     );
@@ -130,7 +130,7 @@ test.describe('Booking link', () => {
     await expect(btn).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  test('Book a Meeting button has descriptive aria-label mentioning new tab', async ({ page }) => {
+  test('intro call button has descriptive aria-label mentioning new tab', async ({ page }) => {
     const btn = page.locator(
       '#contact a.btn[href="https://calendar.app.google/rnSpPJT3fTj9bpxi9"]',
     );
