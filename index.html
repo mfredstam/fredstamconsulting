@@ -328,59 +328,44 @@
           </div>
           <div class="hero-visual">
             <svg
-              class="hero-diagram"
+              class="hero-diagram hero-pcb"
               viewBox="0 0 360 470"
               xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-labelledby="hero-diagram-title"
+              aria-hidden="true"
             >
-              <title id="hero-diagram-title">
-                Pipeline from requirements through architecture, implementation and verification to
-                certification evidence, with a traceability loop back to the requirements
-              </title>
-              <!-- traceability loop -->
-              <path class="diagram-loop" d="M 300 406 L 336 406 L 336 66 L 306 66" />
-              <polyline class="diagram-arrow" points="312 60 304 66 312 72" />
-              <text
-                class="diagram-loop-label"
-                x="350"
-                y="236"
-                text-anchor="middle"
-                transform="rotate(-90 350 236)"
-              >
-                TRACEABILITY
-              </text>
-              <!-- 01 requirements -->
-              <rect class="diagram-box" x="40" y="10" width="260" height="56" rx="10" />
-              <text class="diagram-step" x="58" y="44">01</text>
-              <text class="diagram-label" x="170" y="44" text-anchor="middle">Requirements</text>
-              <line class="diagram-arrow" x1="170" y1="70" x2="170" y2="94" />
-              <polyline class="diagram-arrow" points="164 92 170 100 176 92" />
-              <!-- 02 architecture -->
-              <rect class="diagram-box" x="40" y="102" width="260" height="56" rx="10" />
-              <text class="diagram-step" x="58" y="136">02</text>
-              <text class="diagram-label" x="170" y="136" text-anchor="middle">Architecture</text>
-              <line class="diagram-arrow" x1="170" y1="162" x2="170" y2="186" />
-              <polyline class="diagram-arrow" points="164 184 170 192 176 184" />
-              <!-- 03 implementation -->
-              <rect class="diagram-box" x="40" y="194" width="260" height="56" rx="10" />
-              <text class="diagram-step" x="58" y="228">03</text>
-              <text class="diagram-label" x="170" y="228" text-anchor="middle">Implementation</text>
-              <line class="diagram-arrow" x1="170" y1="254" x2="170" y2="278" />
-              <polyline class="diagram-arrow" points="164 276 170 284 176 276" />
-              <!-- 04 verification -->
-              <rect class="diagram-box" x="40" y="286" width="260" height="56" rx="10" />
-              <text class="diagram-step" x="58" y="320">04</text>
-              <text class="diagram-label" x="170" y="320" text-anchor="middle">Verification</text>
-              <line class="diagram-arrow" x1="170" y1="346" x2="170" y2="370" />
-              <polyline class="diagram-arrow" points="164 368 170 376 176 368" />
-              <!-- 05 certification evidence -->
-              <rect class="diagram-box" x="40" y="378" width="260" height="56" rx="10" />
-              <text class="diagram-step" x="58" y="412">05</text>
-              <text class="diagram-label" x="170" y="412" text-anchor="middle">
-                Certification evidence
-              </text>
-              <polyline class="diagram-check" points="272 407 279 414 292 399" />
+              <!-- PCB traces with 45° bends, ending in vias -->
+              <path class="pcb-trace" d="M 150 185 L 150 120 L 118 88" />
+              <circle class="pcb-via" cx="113" cy="83" r="4.5" />
+              <path class="pcb-trace" d="M 210 185 L 210 140 L 242 108" />
+              <circle class="pcb-via" cx="247" cy="103" r="4.5" />
+              <path class="pcb-trace" d="M 150 285 L 150 350 L 118 382" />
+              <circle class="pcb-via" cx="113" cy="387" r="4.5" />
+              <path class="pcb-trace" d="M 210 285 L 210 330 L 250 370" />
+              <circle class="pcb-via" cx="255" cy="375" r="4.5" />
+              <path class="pcb-trace" d="M 130 210 L 70 210 L 40 180" />
+              <circle class="pcb-via" cx="35" cy="175" r="4.5" />
+              <path class="pcb-trace" d="M 130 235 L 60 235" />
+              <circle class="pcb-via" cx="54" cy="235" r="4.5" />
+              <path class="pcb-trace" d="M 130 260 L 80 260 L 50 290" />
+              <circle class="pcb-via" cx="45" cy="295" r="4.5" />
+              <path class="pcb-trace" d="M 230 210 L 290 210 L 320 180" />
+              <circle class="pcb-via" cx="325" cy="175" r="4.5" />
+              <path class="pcb-trace" d="M 230 235 L 310 235" />
+              <circle class="pcb-via" cx="316" cy="235" r="4.5" />
+              <path class="pcb-trace" d="M 230 260 L 280 260 L 310 290" />
+              <circle class="pcb-via" cx="315" cy="295" r="4.5" />
+              <!-- extra corner traces -->
+              <path class="pcb-trace" d="M 60 60 L 110 60 L 140 90" />
+              <circle class="pcb-via" cx="145" cy="95" r="4.5" />
+              <path class="pcb-trace" d="M 300 410 L 250 410 L 220 380" />
+              <circle class="pcb-via" cx="215" cy="375" r="4.5" />
+              <!-- chip -->
+              <rect class="pcb-chip" x="130" y="185" width="100" height="100" rx="12" />
+              <rect class="pcb-chip-inner" x="152" y="207" width="56" height="56" rx="8" />
+              <polyline
+                class="pcb-signal"
+                points="160 235 168 235 168 225 176 225 176 235 184 235 184 245 192 245 192 235 200 235"
+              />
             </svg>
           </div>
           <div class="scroll-hint" aria-hidden="true">

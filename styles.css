@@ -566,14 +566,20 @@ ul {
   height: auto;
 }
 
-.hero-diagram .diagram-box {
+/* Abstract PCB-trace/chip motif (hero visual) */
+.hero-pcb .pcb-chip {
   fill: var(--color-surface);
-  stroke: var(--color-border);
-  stroke-width: 1;
+  stroke: var(--color-accent-blue);
+  stroke-width: 1.5;
 }
 
-.hero-diagram .diagram-arrow,
-.hero-diagram .diagram-loop {
+.hero-pcb .pcb-chip-inner {
+  fill: none;
+  stroke: var(--color-accent-teal);
+  stroke-width: 1.5;
+}
+
+.hero-pcb .pcb-trace {
   fill: none;
   stroke: var(--color-accent-teal);
   stroke-width: 1.5;
@@ -581,35 +587,18 @@ ul {
   stroke-linejoin: round;
 }
 
-.hero-diagram .diagram-loop {
-  stroke-dasharray: 4 4;
+.hero-pcb .pcb-via {
+  fill: var(--color-bg);
+  stroke: var(--color-accent-teal);
+  stroke-width: 1.5;
 }
 
-.hero-diagram .diagram-check {
+.hero-pcb .pcb-signal {
   fill: none;
   stroke: var(--color-accent-teal-text);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-}
-
-.hero-diagram .diagram-label {
-  fill: var(--color-text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-}
-
-.hero-diagram .diagram-step {
-  fill: var(--color-accent-teal-text);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-}
-
-.hero-diagram .diagram-loop-label {
-  fill: var(--color-accent-teal-text);
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  letter-spacing: 0.12em;
 }
 
 .availability-badge {
