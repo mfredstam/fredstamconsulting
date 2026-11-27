@@ -554,9 +554,10 @@ ul {
 }
 
 @media (max-width: 899px) {
+  /* PCB motif is desktop-only: stacked full-width below the copy it looks
+     randomly placed and leaves a large void above the next section */
   .hero-visual {
-    margin-top: var(--space-10);
-    justify-content: flex-start;
+    display: none;
   }
 }
 
